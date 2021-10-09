@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.containerBox {
+  width: 90vw;
+}
+.wrapTop {
+  display: flex;
+  justify-content: center;
+}
+.inputTop {
+  height: 100px !important;
+  width: 90vw;
+  margin-top: 50px !important;
+  background: blue !important;
+  border-radius: 8px !important;
+  font-size: 30px !important;
+}
+.content {
+  display: flex;
+  justify-content: center;
+}
+.wrapContent {
+  display: flex;
+  justify-content: center;
+}
+.inbox {
+  height: 137px;
+  width: 50%;
+  background: red;
+  margin-right: 10px;
+}
+.application {
+  height: 80vh;
+  width: 50%;
+  background: grey;
+  margin-left: 10px;
+}
+
+.fa-cog {
+  top: 86px;
+  right: 1rem;
+  font-size: 37px;
+}
+
+input::placeholder{
+  line-height:50px;
+  margin-top:10px;
+  font-size: 30px;
+  font-weight: 500;
+  color:black;
+}
+
+input { font-size: 28px; }
+
+.application {
+  padding: 20px 40px 40px 20px;
+}
+.appTop {
+  display: flex;
+}
+.home {
+  height: 64px;
+  width: 64px;
+}
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+}
+.iconApp {
+  height: 120px;
+  width: 120px;
+}
