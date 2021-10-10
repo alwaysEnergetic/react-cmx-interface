@@ -1,17 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import './index.css';
 import App from './App';
-import { store } from './app/store';
-import { Provider } from 'react-redux';
+import { ThemeProvider } from "@material-ui/styles";
+import { createTheme } from '@material-ui/core/styles';
 import * as serviceWorker from './serviceWorker';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#131313",
+      hoverColor: "#100f11",
+      hoverBorderColor: "#4DA0FD"
+    },
+    fonts: ["sans-serif", "Roboto"],
+    fontSizes: {
+      small: "15px",
+      medium: "27px",
+      large: "35px",
+      enormous: "68px"
+    },
+    fontWeight: {
+      small: "400",
+      medium: "500",
+      large: "600"
+    }
+  }
+})
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <ThemeProvider theme={theme}>
       <App />
-    </Provider>
+    </ThemeProvider>  
   </React.StrictMode>,
   document.getElementById('root')
 );
