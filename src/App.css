@@ -75,3 +75,15 @@
   display: flex;
   align-items: center;
 }
+@media only screen and (max-width: 768px) {
+#titleTop {
+  font-size: 30px;
+}
+#titleWelcome {
+  font-size: 22px;
+  margin-top: 5px; 
+}
+.cmxLogo {
+  font-size: 17px;
+}
+}
