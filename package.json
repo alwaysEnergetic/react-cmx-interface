@@ -11,6 +11,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@workday/canvas-kit-react": "^5.2.8",
+    "@workday/canvas-kit-react-button": "^4.8.1",
     "@workday/canvas-kit-react-form-field": "^4.8.1",
     "@workday/canvas-kit-react-text-input": "^4.8.1",
     "react": "^17.0.2",

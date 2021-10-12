@@ -14,9 +14,9 @@ const Home = () => {
                 </div>
                 <div className="title">
                     <h1 className={classes.titleTop} id="titleTop">
-                        Choose your application
-                    </h1>
-                    <p className={classes.titleWelcome} id="titleWelcome">Welcome, Han Solo</p>
+                        Welcome, Han Solo
+                    </h1>    
+                    <p className={classes.titleWelcome} id="titleWelcome">Choose your application</p>
                 </div>
                 <div className="application">
                     <div className="wrapApp">

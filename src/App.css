@@ -75,6 +75,79 @@
   display: flex;
   align-items: center;
 }
+
+
+/*
+@  Login Page Css 
+@
+*/
+.loginTop {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%), 0 2px 4px 0 rgb(0 0 0 / 19%);
+  background: #003059;
+  min-height: 45px;
+  height: 118px;
+  border-radius: 0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.loginLogo {
+  color: white;
+  display: flex;
+  position: absolute;
+}
+
+#cmx {
+  font-size: 30px;
+}
+#description {
+  font-size: 17px;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+.loginTitle {
+  font-size: xx-large;
+  color: white;
+  margin: auto;
+  font-weight: 500;
+}
+
+.loginContent {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+.loginInfoMessage {
+  color: #478fca ;
+  font-size: 19px;
+  border-bottom: 1px solid #d5e3ef;
+  margin-bottom: 20px;
+  line-height: 54px;
+}
+.customize {
+  right: 10px;
+  top: 12px;
+  color: #313131;
+}
+.loginButton {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+.key {
+    margin-left: 5px;
+    width: 16px;
+    height: 16px;
+}
+.secondaryButton {
+  background-color: #003059 !important;
+  width: 100%;
+  border-radius: 4px !important;
+  font-weight: 400 !important;
+}
+
 @media only screen and (max-width: 768px) {
 #titleTop {
   font-size: 30px;
