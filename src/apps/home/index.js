@@ -2,7 +2,7 @@ import React from "react";
 import { FcHome } from "react-icons/fc";
 import { makeStyles } from "@material-ui/core/styles";
 import IconComponent from "./iconComponent";
-import "../../src/App.css";
+import "../../App.css";
 
 const Home = () => {
     const classes = useStyles();

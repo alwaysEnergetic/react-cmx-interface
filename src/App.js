@@ -1,8 +1,8 @@
 import React from 'react';
 import Provider from "react-redux/es/components/Provider";
-import { store } from "./app/store";
-import Home from "./features/home";
-import Login from "./features/login";
+import { store } from "./store";
+import Home from "./apps/home";
+import Login from "./apps/login";
 
 import { BrowserRouter as Router, Switch, Route ,Redirect } from "react-router-dom";
 
