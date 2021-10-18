@@ -113,7 +113,7 @@ const Login = () => {
                                 type="email"
                                 required
                             />
-                            <p>{errors.email?.message}</p>
+                            <p className="errorMsg">{errors.email?.message}</p>
                             <br />
 
                             <input
@@ -123,7 +123,7 @@ const Login = () => {
                                 type="password"
                                 required
                             />
-                            <p>{errors.password?.message}</p>
+                            <p className="errorMsg">{errors.password?.message}</p>
                             <br />
                             <div className="loginButton">
                                 <div className="w-full">

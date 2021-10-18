@@ -179,6 +179,9 @@
   border-radius: 4px !important;
   font-weight: 400 !important;
 }
+.errorMsg {
+  color: red;
+}
 
 @media only screen and (max-width: 768px) {
   #titleTop {
