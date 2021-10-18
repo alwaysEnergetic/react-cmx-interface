@@ -9,18 +9,14 @@ import {Button} from '@workday/canvas-kit-react-button';
 import { FaUser, FaLock } from "react-icons/fa";
 import { FiArrowRightCircle } from "react-icons/fi";
 import { makeStyles } from "@material-ui/core/styles";
-import {doLogin} from '../../store/loginSlice'
-
-
-
+import {doLogin, setLoginStatus} from '../../store/loginSlice'
 const Login = () => {
      const [state, setState] = useState({
-         email:"",
-         password:""
+        email:"",
+        password:""
      })
     const classes = useStyles();
     const dispatch = useDispatch();
-
     const submit = () => {
         dispatch(doLogin({
             "clientId" : "7dc53df5-703e-49b3-8670-b1c468f47f1f",    
@@ -72,7 +68,6 @@ const Login = () => {
                                             Login
                                             <FiArrowRightCircle className="key"/>
                                         </div>
-
                                     </Button>
                                 </div>
                                 

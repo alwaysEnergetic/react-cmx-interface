@@ -5,6 +5,8 @@ import Home from "./apps/home";
 import Login from "./apps/login";
 
 import { BrowserRouter as Router, Switch, Route ,Redirect } from "react-router-dom";
+import PrivateRoute from "./apps/login/privateRoute";
+import PublicRoute from "./apps/login/publicRoute";
 
 import './App.css';
 
@@ -13,8 +15,9 @@ const App = () => {
     <Provider store = {store} className="App">
       <Router>
           <Switch>
-            <Route exact path="/" component={ Login } />
-            <Route exact path="/home" component={ Home } />
+            <PublicRoute restricted={true} component={Login} path="/login" exact />
+            <PublicRoute restricted={true} component={Login} path="/" exact />
+            <PrivateRoute component={Home} path="/home" exact />
           </Switch>
       </Router>
     </Provider>
