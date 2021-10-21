@@ -1,16 +1,32 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory  } from "react-router-dom";
 import { FcHome } from "react-icons/fc";
 import { makeStyles } from "@material-ui/core/styles";
-import IconComponent from "./iconComponent";
+import IconComponent from "../../common/iconComponent";
+import { doLogout, setLoginStatus } from "../../store/loginSlice";
+
 import "../../App.css";
 
 const Home = () => {
     const classes = useStyles();
+    let history = useHistory();
+    const dispatch = useDispatch();
+
+    const handleLogout = () => {
+        console.log("handleLogout");
+        dispatch(
+            doLogout()
+        );        
+        return history.push('/login');
+    }
+
     return (
         <div className="containerWrap">
             <div className="containerBox">
                 <div className="topLogo">
-                    <p className="cmxLogo">CMx</p>
+                    <h4 className="cmxLogo">CMx</h4>
+                    <button onClick={handleLogout}><h4 className="logout">logout</h4></button>
                 </div>
                 <div className="title">
                     <h1 className={classes.titleTop} id="titleTop">

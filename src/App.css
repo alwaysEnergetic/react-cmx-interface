@@ -7,9 +7,21 @@
 .containerBox {
   width: 96vw;
 }
+
+.topLogo {
+  display: flex;
+  justify-content: space-between;
+}
+
 .cmxLogo {
   font-size: 35px;
   margin-top: 20px;
+}
+
+.logout {
+  font-size: 20px;
+  margin-top: 20px;
+  text-decoration: underline;
 }
 
 .application {
@@ -181,6 +193,7 @@
 }
 .errorMsg {
   color: red;
+  font-size: small;
 }
 
 @media only screen and (max-width: 768px) {

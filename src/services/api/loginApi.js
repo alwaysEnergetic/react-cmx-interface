@@ -1,4 +1,4 @@
-import {post, get} from './base';
+import { post } from './base';
 
 export const loginApi = {
     getAuthCode: (data) =>

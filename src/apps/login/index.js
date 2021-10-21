@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-import logo from "./logo.png";
-import background from "./background.jpg";
-import TextInput from "@workday/canvas-kit-react-text-input";
-import FormField from "@workday/canvas-kit-react-form-field";
 import "../../App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@workday/canvas-kit-react-button";
-import { FaUser, FaLock } from "react-icons/fa";
 import { FiArrowRightCircle } from "react-icons/fi";
 import { makeStyles } from "@material-ui/core/styles";
 import { doLogin, setLoginStatus } from "../../store/loginSlice";
@@ -17,41 +12,51 @@ import { yupResolver } from "@hookform/resolvers/yup";
 const schema = yup.object().shape({
     email: yup.string().email().required(),
     password: yup.string().min(8).max(32).required(),
-});
+}).required();
 
+const background = window.location.origin + "/static/cmx/default/assets/images/reactSystemUi/background.d598f5c7.jpg";
+const logo = window.location.origin + "/static/cmx/default/assets/images/reactSystemUi/logo.b642dff7.png";
 
 const Login = () => {
     const [state, setState] = useState({
         email: "",
         password: "",
+        error: false,
     });
     const classes = useStyles();
-
     const dispatch = useDispatch();
-
-
     const {
         register,
         handleSubmit,
         formState: { errors },
         reset,
+        
     } = useForm({
         resolver: yupResolver(schema),
     });
 
     const submit = () => {
         reset();
-        dispatch(
+        const result =dispatch(
             doLogin({
-                clientId: "7dc53df5-703e-49b3-8670-b1c468f47f1f",
-                redirectUri:
-                    "https://live.contractexperience.com/CMx_API/2.0/oauth2/redirect",
-                domainName: "live",
-                email: "cmx@sysintellects.com",
-                password: "CMx187806",
+                email: state.email,
+                password: state.password,
             })
         );
+        result.then(res => {
+            if (res.meta.requestStatus === 'rejected') {
+                setState((prevState) => ({"email": prevState.email, "password": prevState.password, "error": true }));        
+            }
+        });
     };
+
+    const handleEmail = (e) => {
+        setState((prevState) => ({"email": e.target.value, "password": prevState.password, "error": false }));
+    }
+
+    const handlePassword = (e) => {
+        setState((prevState) => ({"email": prevState.email, "password": e.target.value, "error": false }));
+    }
 
     return (
         <div
@@ -61,12 +66,10 @@ const Login = () => {
             <div className="loginContent canvasBackground">
                 <div className="loginDesc">
                     <div>
-                        <div>
-                            <img src={logo} alt="logo" className="imgSrc" />
-                        </div>
-                        <div className="letter">
-                            Expert Partner in your growth
-                        </div>
+                        <img src={logo} alt="logo" className="imgSrc" />
+                    </div>
+                    <div className="letter">
+                        Expert Partner in your growth
                     </div>
                 </div>
                 <div className="loginFo">
@@ -75,35 +78,6 @@ const Login = () => {
                         <div className="loginInfoMessage">
                             Please Enter Your Information
                         </div>
-                        {/* <form className="loginTwo">
-                            <div className="email" >
-                                <FormField className="form-group position-relative" inputId="my-input-field">
-                                    <TextInput  {...register("email")} className="form-control input-lg rounded-lg inputUserName inputVal " type="email" placeholder="Email:" onChange={(e)=>setState({...state, email:e.target.value})}/>
-                                    <FaUser className="position-absolute customize" />
-                                    <p>{errors.email?.message}</p>
-                                </FormField>
-                                
-                            </div>
-                            <div className="password" >
-                                <FormField className="form-group position-relative" inputId="my-input-field">
-                                <TextInput {...register("password")} className="form-control input-lg rounded-lg inputPassword inputVal" type="password" placeholder="Password:" onChange={(e)=>setState({...state, password:e.target.value})}/>
-                                <FaLock className="position-absolute customize" />
-                                <p>{errors.password?.message}</p>
-                                </FormField>
-                            </div>
-                            <div className="loginButton">
-                                <div className="w-full">
-                                    <Button variant={Button.Variant.Primary} className="secondaryButton" onClick={submit}>
-                                        <div className="flex">
-                                            Login
-                                            <FiArrowRightCircle className="key"/>
-                                        </div>
-                                    </Button>
-                                </div>
-                                
-                            </div>
-                        </form> */}
-
                         <form onSubmit={handleSubmit(submit)}>
                             <br />
                             <input
@@ -112,6 +86,7 @@ const Login = () => {
                                 placeholder="Email"
                                 type="email"
                                 required
+                                onChange={(e) => handleEmail(e)}
                             />
                             <p className="errorMsg">{errors.email?.message}</p>
                             <br />
@@ -122,8 +97,11 @@ const Login = () => {
                                 placeholder="Password"
                                 type="password"
                                 required
+                                onChange={(e) => handlePassword(e)}
                             />
-                            <p className="errorMsg">{errors.password?.message}</p>
+                            <p className="errorMsg">
+                                { errors.password ? errors.password.message : state.error ? "Invalid password, please try again" : null }
+                            </p>
                             <br />
                             <div className="loginButton">
                                 <div className="w-full">
